@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edwin J - Product Leader & Senior Business Analyst</title>
+    <meta name="description" content="Product Leader | Senior Business Analyst | Driving Digital Transformation Through People & Technology">
+    <meta name="keywords" content="Product Leader, Business Analyst, Product Owner, AI Enthusiast, Digital Transformation">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .resume-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(44, 62, 80, 0.1);
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(52, 152, 219, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid rgba(52, 152, 219, 0.3);
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-btn {
+            padding: 12px 30px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-btn.primary {
+            background: #3498db;
+            border-color: #3498db;
+        }
+
+        .cta-btn.primary:hover {
+            background: #2980b9;
+            border-color: #2980b9;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 0;
+        }
+
+        .sidebar {
+            background: #f8f9fa;
+            padding: 40px 30px;
+        }
+
+        .content {
+            padding: 50px 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 25px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 2px;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #34495e;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        .skill-category {
+            margin-bottom: 30px;
+        }
+
+        .skill-category-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: white;
+            color: #34495e;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 2px solid #ecf0f1;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+            transform: translateY(-2px);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, #3498db, #2980b9);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.15);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -47px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            background: #3498db;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #3498db;
+        }
+
+        .position-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .position-description {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .position-description ul {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+
+        .position-description li {
+            margin-bottom: 8px;
+        }
+
+        .contact-section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #2c3e50;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: #3498db;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .contact-icon {
+            font-size: 1.2rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .ai-interest {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .ai-interest h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.15);
+        }
+
+        .project-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .name {
+                font-size: 2.2rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .content, .sidebar {
+                padding: 30px 25px;
+            }
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(52, 152, 219, 0.08), rgba(44, 62, 80, 0.03));
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .floating-circle:nth-child(1) {
+            width: 120px;
+            height: 120px;
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-circle:nth-child(2) {
+            width: 80px;
+            height: 80px;
+            top: 70%;
+            right: 15%;
+            animation-delay: 3s;
+        }
+
+        .floating-circle:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 25%;
+            animation-delay: 6s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+    </div>
+
+    <div class="container">
+        <div class="resume-card">
+            <div class="header">
+                <div class="profile-img">EJ</div>
+                <h1 class="name">Edwin J</h1>
+                <p class="tagline">Product Leader | Senior Business Analyst | Driving Digital Transformation Through People & Technology</p>
+                <div class="cta-buttons">
+                    <a href="https://www.linkedin.com/in/edwin-j-0554b1a/" class="cta-btn primary" target="_blank">Get in Touch</a>
+                    <a href="#experience" class="cta-btn">Explore My Journey</a>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="sidebar">
+                    <div class="contact-section">
+                        <h3 class="section-title" style="font-size: 1.3rem; margin-bottom: 20px;">
+                            Contact
+                        </h3>
+                        <div class="contact-links">
+                            <a href="mailto:edwin.george.jacob@gmail.com" class="contact-link">
+                                <span class="contact-icon">✉️</span>
+                                <span>edwin.george.jacob@gmail.com</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/edwin-j-0554b1a/" class="contact-link" target="_blank">
+                                <span class="contact-icon">💼</span>
+                                <span>LinkedIn Profile</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h3 class="section-title" style="font-size: 1.3rem;">Skills & Expertise</h3>
+                        
+                        <div class="skill-category">
+                            <div class="skill-category-title">Core Competencies</div>
+                            <div class="skill-list">
+                                <span class="skill-tag">Business Analysis</span>
+                                <span class="skill-tag">Product Ownership</span>
+                                <span class="skill-tag">Agile Delivery</span>
+                                <span class="skill-tag">Scrum Facilitation</span>
+                                <span class="skill-tag">Stakeholder Engagement</span>
+                                <span class="skill-tag">Roadmap Planning</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <div class="skill-category-title">Technical Acumen</div>
+                            <div class="skill-list">
+                                <span class="skill-tag">Software Development</span>
+                                <span class="skill-tag">Enterprise Systems</span>
+                                <span class="skill-tag">AI & Emerging Tech</span>
+                                <span class="skill-tag">Solution Architecture</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <div class="skill-category-title">Leadership</div>
+                            <div class="skill-list">
+                                <span class="skill-tag">Cross-team Collaboration</span>
+                                <span class="skill-tag">Workshop Facilitation</span>
+                                <span class="skill-tag">Problem Framing</span>
+                                <span class="skill-tag">Continuous Learning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <div class="section">
+                        <h2 class="section-title">About Me</h2>
+                        <p class="intro-text">
+                            I'm Edwin J, a versatile IT professional with a career journey spanning <span class="highlight">instructional design, software development, solutions consulting, business analysis, and product ownership</span>. I thrive at the intersection of people, process, and technology—helping teams deliver impactful digital solutions that create lasting business value.
+                        </p>
+                        <p class="intro-text">
+                            What excites me most is <span class="highlight">guiding teams through ambiguity, creating clarity, and ensuring the "why" behind solutions is never lost</span>. With a passion for AI and emerging technologies, I'm committed to shaping products and strategies that anticipate the future.
+                        </p>
+                    </div>
+
+                    <div class="ai-interest">
+                        <h3>AI & Future Interests</h3>
+                        <p>Technology is moving faster than ever, and AI is at the forefront of this transformation. I'm deeply engaged in understanding how AI can be embedded into enterprise solutions—streamlining processes, unlocking insights, and empowering teams to work smarter.</p>
+                        <p style="margin-top: 15px;">I'm particularly interested in how product leaders can responsibly integrate AI into digital strategies to create products that are not just efficient, but also human-centered and future-ready.</p>
+                    </div>
+
+                    <div class="section" id="experience">
+                        <h2 class="section-title">Career Timeline</h2>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h3 class="position-title">Product Owner</h3>
+                                <div class="position-description">
+                                    <ul>
+                                        <li>Defined and prioritized product backlogs aligned with business strategy</li>
+                                        <li>Partnered with cross-functional teams to deliver enterprise solutions</li>
+                                        <li>Balanced vision, stakeholder needs, and delivery constraints to maximize business value</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h3 class="position-title">Senior Business Analyst</h3>
+                                <div class="position-description">
+                                    <ul>
+                                        <li>Led requirements discovery, stakeholder workshops, and backlog refinement</li>
+                                        <li>Supported quarterly planning with capacity analysis, dependencies, and roadmap clarity</li>
+                                        <li>Championed customer-centric thinking, ensuring initiatives delivered measurable impact</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h3 class="position-title">Solutions Consultant</h3>
+                                <div class="position-description">
+                                    <ul>
+                                        <li>Worked with clients to translate complex requirements into tailored technology solutions</li>
+                                        <li>Designed and delivered scalable implementations that improved customer processes</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h3 class="position-title">Software Developer</h3>
+                                <div class="position-description">
+                                    <ul>
+                                        <li>Built and maintained enterprise applications with a focus on usability and performance</li>
+                                        <li>Developed strong foundations in coding, systems, and solution design</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h3 class="position-title">Instructional Designer</h3>
+                                <div class="position-description">
+                                    <ul>
+                                        <li>Created engaging learning experiences that balanced pedagogy and technology</li>
+                                        <li>Cultivated communication skills and a learner-first mindset that continues to guide my work</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 class="section-title">Key Projects</h2>
+                        <div class="projects-grid">
+                            <div class="project-card">
+                                <h4 class="project-title">ConnectAssist - Energy Connections Platform</h4>
+                                <p>Owned and delivered ConnectAssist, a new energy (Electricity & Gas meters) Connections Management Platform, integrating with multiple enterprise systems, and acted as Product Owner and BA, while contributing to delivery leadership. Championed user-centric design and continuous discovery practices while working closely with architects and developers to solve complex integration challenges and future-proof platform design.</p>
+                            </div>
+                            <div class="project-card">
+                                <h4 class="project-title">JBWere Digital Wealth Management Platform</h4>
+                                <p>At JBWere, I led the delivery of a key digital transformation project which involved a complete rebuild of a client facing wealth management platform. Collaborating closely with business stakeholders, architects, and development teams, I gathered and prioritised requirements, shaped user-centric solutions, and managed the end-to-end delivery lifecycle.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section" id="contact">
+                        <h2 class="section-title">Let's Connect</h2>
+                        <p class="intro-text">
+                            I'm always open to conversations around <span class="highlight">product leadership, business analysis, and the future of AI in enterprise technology</span>. Whether you're looking to discuss opportunities or simply want to connect with a fellow technology enthusiast, I'd love to hear from you.
+                        </p>
+                        <div style="margin-top: 30px;">
+                            <a href="mailto:edwin.george.jacob@gmail.com?subject=Let's Connect&body=Hi Edwin, I'd like to connect with you about..." class="cta-btn primary" style="display: inline-block; color: white;">Send me a message</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation to timeline items
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe timeline items for scroll animation
+        document.querySelectorAll('.timeline-item').forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(item);
+        });
+
+        // Enhanced hover effects
+        document.querySelectorAll('.skill-tag').forEach(tag => {
+            tag.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.05)';
+            });
+            
+            tag.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Contact form functionality (if needed)
+        function sendEmail() {
+            window.location.href = 'mailto:edwin.george.jacob@gmail.com?subject=Let\'s Connect&body=Hi Edwin, I\'d like to connect with you about...';
+        }
+    </script>
+</body>
+</html>
