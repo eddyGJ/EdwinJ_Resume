@@ -371,7 +371,68 @@
             font-size: 1.1rem;
         }
 
+        .company-ticker {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            border-top: 1px solid rgba(52, 152, 219, 0.1);
+            border-bottom: 1px solid rgba(52, 152, 219, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ticker-wrapper {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .company-logo {
+            height: 40px;
+            width: auto;
+            max-width: 120px;
+            object-fit: contain;
+            filter: grayscale(100%) opacity(0.7);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .company-logo:hover {
+            filter: grayscale(0%) opacity(1);
+            transform: scale(1.1);
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .ticker-content {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            min-width: 100%;
+        }
+
         @media (max-width: 768px) {
+            .company-ticker {
+                padding: 15px 0;
+            }
+            
+            .company-logo {
+                height: 30px;
+                max-width: 100px;
+            }
+            
+            .ticker-wrapper {
+                gap: 40px;
+            }
+        }
             .main-content {
                 grid-template-columns: 1fr;
             }
@@ -463,6 +524,27 @@
                 <div class="cta-buttons">
                     <a href="https://www.linkedin.com/in/edwin-j-0554b1a/" class="cta-btn primary" target="_blank">Get in Touch</a>
                     <a href="#experience" class="cta-btn">Explore My Journey</a>
+                </div>
+            </div>
+
+            <div class="company-ticker">
+                <div class="ticker-wrapper">
+                    <div class="ticker-content">
+                        <img src="https://logos-world.net/wp-content/uploads/2021/03/Alinta-Energy-Logo.png" alt="Alinta Energy" class="company-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Vanguard.png/1200px-Vanguard.png" alt="Vanguard" class="company-logo">
+                        <img src="https://logos-world.net/wp-content/uploads/2021/02/National-Australia-Bank-NAB-Logo.png" alt="NAB" class="company-logo">
+                        <img src="https://logos-world.net/wp-content/uploads/2021/11/EnergyAustralia-Logo.png" alt="EnergyAustralia" class="company-logo">
+                        <img src="https://logos-world.net/wp-content/uploads/2021/02/Fidelity-Investments-Logo.png" alt="Fidelity Investments" class="company-logo">
+                        <img src="https://logos-world.net/wp-content/uploads/2020/06/Infosys-Logo.png" alt="Infosys" class="company-logo">
+                    </div>
+                    <div class="ticker-content">
+                        <img src="https://logos-world.net/wp-content/uploads/2021/03/Alinta-Energy-Logo.png" alt="Alinta Energy" class="company-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Vanguard.png/1200px-Vanguard.png" alt="Vanguard" class="company-logo">
+                        <img src="https://logos-world.net/wp-content/uploads/2021/02/National-Australia-Bank-NAB-Logo.png" alt="NAB" class="company-logo">
+                        <img src="https://logos-world.net/wp-content/uploads/2021/11/EnergyAustralia-Logo.png" alt="EnergyAustralia" class="company-logo">
+                        <img src="https://logos-world.net/wp-content/uploads/2021/02/Fidelity-Investments-Logo.png" alt="Fidelity Investments" class="company-logo">
+                        <img src="https://logos-world.net/wp-content/uploads/2020/06/Infosys-Logo.png" alt="Infosys" class="company-logo">
+                    </div>
                 </div>
             </div>
 
