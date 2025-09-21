@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+        .contact-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,83 +16,249 @@
     <meta name="description" content="Product Leader | Senior Business Analyst | Driving Digital Transformation Through People & Technology">
     <meta name="keywords" content="Product Leader, Business Analyst, Product Owner, AI Enthusiast, Digital Transformation">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #ffffff;
+            --accent-color: #666666;
+            --card-bg: #ffffff;
+            --border-color: #e5e5e5;
+            --text-primary: #000000;
+            --text-secondary: #666666;
+            --hover-bg: #f5f5f5;
+        }
+
         body {
-            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #ffffff;
+            color: var(--text-primary);
             line-height: 1.6;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
+        /* Clean white background */
+        .bg-animation {
+            display: none;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(5deg); }
+            66% { transform: translateY(-10px) rotate(-5deg); }
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
         }
 
-        .resume-card {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(44, 62, 80, 0.1);
-            overflow: hidden;
-            animation: fadeInUp 0.8s ease-out;
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .nav-links {
+            display: flex;
+            gap: 40px;
         }
 
-        .header {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            padding: 50px 40px;
-            text-align: center;
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 40px 60px;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .hero-tagline {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 50px;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .header::before {
+        .cta-btn.primary {
+            background: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+        }
+
+        .cta-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .cta-btn.secondary:hover {
+            background: var(--hover-bg);
+            transform: translateY(-2px);
+        }
+
+        /* Profile Card */
+        .profile-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .profile-card::before {
             content: '';
             position: absolute;
             top: -50%;
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(52, 152, 219, 0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
+            background: none;
+            animation: none;
         }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            animation: rotate 10s linear infinite;
+        }
+
+        .profile-content {
+            position: relative;
+            z-index: 1;
         }
 
         .profile-img {
-            width: 120px;
-            height: 120px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            border: 4px solid rgba(52, 152, 219, 0.3);
-            margin: 0 auto 20px;
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin: 0 auto 30px;
             position: relative;
-            z-index: 1;
-            overflow: hidden;
+            background: var(--border-color);
+            padding: 4px;
         }
 
         .profile-img img {
@@ -93,298 +268,51 @@
             border-radius: 50%;
         }
 
-        .name {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .tagline {
-            font-size: 1.3rem;
-            opacity: 0.95;
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 1;
-            font-weight: 300;
-        }
-
-        .cta-buttons {
+        .profile-stats {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
+            justify-content: space-around;
+            margin-top: 30px;
         }
 
-        .cta-btn {
-            padding: 12px 30px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 25px;
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .cta-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-btn.primary {
-            background: #3498db;
-            border-color: #3498db;
-        }
-
-        .cta-btn.primary:hover {
-            background: #2980b9;
-            border-color: #2980b9;
-        }
-
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 0;
-        }
-
-        .sidebar {
-            background: #f8f9fa;
-            padding: 40px 30px;
-        }
-
-        .content {
-            padding: 50px 40px;
-        }
-
-        .section {
-            margin-bottom: 50px;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 25px;
-            color: #2c3e50;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .section-title::before {
-            content: '';
-            width: 4px;
-            height: 25px;
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            border-radius: 2px;
-        }
-
-        .intro-text {
-            font-size: 1.1rem;
-            color: #34495e;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .highlight {
-            color: #3498db;
-            font-weight: 600;
-        }
-
-        .skill-category {
-            margin-bottom: 30px;
-        }
-
-        .skill-category-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
-
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .skill-tag {
-            background: white;
-            color: #34495e;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            border: 2px solid #ecf0f1;
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: #3498db;
-            color: white;
-            border-color: #3498db;
-            transform: translateY(-2px);
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 15px;
-            top: 0;
-            height: 100%;
-            width: 2px;
-            background: linear-gradient(to bottom, #3498db, #2980b9);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 40px;
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 4px solid #3498db;
-            transition: all 0.3s ease;
-        }
-
-        .timeline-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.15);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -47px;
-            top: 25px;
-            width: 12px;
-            height: 12px;
-            background: #3498db;
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 0 0 3px #3498db;
-        }
-
-        .position-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-
-        .position-description {
-            color: #555;
-            line-height: 1.7;
-        }
-
-        .position-description ul {
-            margin-top: 15px;
-            padding-left: 20px;
-        }
-
-        .position-description li {
-            margin-bottom: 8px;
-        }
-
-        .contact-section {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 15px 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            text-decoration: none;
-            color: #2c3e50;
-            transition: all 0.3s ease;
-        }
-
-        .contact-link:hover {
-            background: #3498db;
-            color: white;
-            transform: translateX(5px);
-        }
-
-        .contact-icon {
-            font-size: 1.2rem;
-            width: 20px;
+        .stat {
             text-align: center;
         }
 
-        .ai-interest {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 30px 0;
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
         }
 
-        .ai-interest h3 {
-            margin-bottom: 15px;
-            font-size: 1.4rem;
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
         }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .project-card {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 4px solid #3498db;
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.15);
-        }
-
-        .project-title {
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
+        /* Company Ticker */
         .company-ticker {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px 0;
-            border-top: 1px solid rgba(52, 152, 219, 0.1);
-            border-bottom: 1px solid rgba(52, 152, 219, 0.1);
+            padding: 60px 0;
             overflow: hidden;
             position: relative;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            background: #fafafa;
+        }
+
+        .ticker-label {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
         }
 
         .ticker-wrapper {
             display: flex;
-            animation: scroll 30s linear infinite;
-            gap: 60px;
+            animation: scroll 40s linear infinite;
+            gap: 80px;
             align-items: center;
         }
 
@@ -393,371 +321,558 @@
             width: auto;
             max-width: 120px;
             object-fit: contain;
-            filter: grayscale(100%) opacity(0.7);
+            filter: grayscale(100%) opacity(0.6);
             transition: all 0.3s ease;
             flex-shrink: 0;
         }
 
         .company-logo:hover {
             filter: grayscale(0%) opacity(1);
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         @keyframes scroll {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
 
-        .ticker-content {
+        /* Sections */
+        .section {
+            padding: 100px 40px;
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .skill-card::before {
+            display: none;
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 8px;
             display: flex;
-            gap: 60px;
             align-items: center;
-            min-width: 100%;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: white;
         }
 
-        @media (max-width: 768px) {
-            .company-ticker {
-                padding: 15px 0;
-            }
-            
-            .company-logo {
-                height: 30px;
-                max-width: 100px;
-            }
-            
-            .ticker-wrapper {
-                gap: 40px;
-            }
-        }
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .name {
-                font-size: 2.2rem;
-            }
-            
-            .tagline {
-                font-size: 1.1rem;
-            }
-
-            .content, .sidebar {
-                padding: 30px 25px;
-            }
+        .skill-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary-color);
         }
 
-        .floating-elements {
-            position: fixed;
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: var(--hover-bg);
+            color: var(--text-primary);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+            font-weight: 500;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--border-color);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+            margin-right: 60px;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 60px;
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            width: calc(50% - 30px);
+            position: relative;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            width: 16px;
+            height: 16px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            border: 3px solid var(--secondary-color);
+        }
+
+        .timeline-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-content {
+            padding: 40px;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* AI Interest Section */
+        .ai-section {
+            background: var(--primary-color);
+            margin: 60px 0;
+            border-radius: 8px;
+            padding: 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .ai-section::before {
+            display: none;
+        }
+
+        .ai-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .ai-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .ai-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .ai-section::before {
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            z-index: -1;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            opacity: 0.3;
         }
 
-        .floating-circle {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(52, 152, 219, 0.08), rgba(44, 62, 80, 0.03));
-            animation: float 8s ease-in-out infinite;
+        .ai-content {
+            position: relative;
+            z-index: 1;
         }
 
-        .floating-circle:nth-child(1) {
-            width: 120px;
-            height: 120px;
-            top: 15%;
-            left: 10%;
-            animation-delay: 0s;
+        .ai-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
         }
 
-        .floating-circle:nth-child(2) {
-            width: 80px;
-            height: 80px;
-            top: 70%;
-            right: 15%;
-            animation-delay: 3s;
+        .ai-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .floating-circle:nth-child(3) {
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+        }
+
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 12px;
+            padding: 40px;
+            border: 1px solid rgba(102, 126, 234, 0.15);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.08);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(102, 126, 234, 0.3);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+        }
+
+        .contact-icon {
             width: 60px;
             height: 60px;
-            bottom: 20%;
-            left: 25%;
-            animation-delay: 6s;
+            background: var(--primary-gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 20px;
         }
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
+        .contact-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 60px;
+                text-align: center;
             }
-            50% {
-                transform: translateY(-30px) rotate(180deg);
+            
+            .timeline::before {
+                left: 20px;
             }
+            
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+                text-align: left !important;
+            }
+            
+            .timeline-dot {
+                left: 20px;
+                transform: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 15px 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero, .section {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .cta-buttons {
+                justify-content: center;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <div class="floating-elements">
-        <div class="floating-circle"></div>
-        <div class="floating-circle"></div>
-        <div class="floating-circle"></div>
-    </div>
+    <div class="bg-animation"></div>
+    
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="logo">Edwin Jacob</div>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-    <div class="container">
-        <div class="resume-card">
-            <div class="header">
-                <div class="profile-img">
-                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQFnehUXrRS6Vg/profile-displayphoto-crop_800_800/B4DZliS53mIEAM-/0/1758290748188?e=1761177600&v=beta&t=A8Tru9VvMZMTI61JXgnor78ORSeqJ4FcjWI6imWxysg" alt="Edwin J - Professional Photo" loading="lazy">
-                </div>
-                <h1 class="name">Edwin Jacob</h1>
-                <p class="tagline">Product Leader | Senior Business Analyst | Driving Digital Transformation Through People & Technology</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Product Leader & Digital Innovator</h1>
+                <p class="hero-tagline">Driving Digital Transformation Through People & Technology</p>
+                <p class="hero-description">
+                    I'm Edwin Jacob, a versatile IT professional with a career journey spanning instructional design, software development, solutions consulting, business analysis, and product ownership. I thrive at the intersection of people, process, and technology—helping teams deliver impactful digital solutions that create lasting business value.
+                </p>
                 <div class="cta-buttons">
-                    <a href="https://www.linkedin.com/in/edwin-j-0554b1a/" class="cta-btn primary" target="_blank">Get in Touch</a>
-                    <a href="#experience" class="cta-btn">Explore My Journey</a>
+                    <a href="https://www.linkedin.com/in/edwin-j-0554b1a/" class="cta-btn primary" target="_blank">Connect on LinkedIn</a>
+                    <a href="#experience" class="cta-btn secondary">Explore My Journey</a>
                 </div>
             </div>
-
-            <div class="company-ticker">
-                <div class="ticker-wrapper">
-                    <div class="ticker-content">
-                        <img src="https://logos-world.net/wp-content/uploads/2021/03/Alinta-Energy-Logo.png" alt="Alinta Energy" class="company-logo">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Vanguard.png/1200px-Vanguard.png" alt="Vanguard" class="company-logo">
-                        <img src="https://logos-world.net/wp-content/uploads/2021/02/National-Australia-Bank-NAB-Logo.png" alt="NAB" class="company-logo">
-                        <img src="https://logos-world.net/wp-content/uploads/2021/11/EnergyAustralia-Logo.png" alt="EnergyAustralia" class="company-logo">
-                        <img src="https://logos-world.net/wp-content/uploads/2021/02/Fidelity-Investments-Logo.png" alt="Fidelity Investments" class="company-logo">
-                        <img src="https://logos-world.net/wp-content/uploads/2020/06/Infosys-Logo.png" alt="Infosys" class="company-logo">
+            <div class="profile-card">
+                <div class="profile-content">
+                    <div class="profile-img">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D03AQFnehUXrRS6Vg/profile-displayphoto-crop_800_800/B4DZliS53mIEAM-/0/1758290748188?e=1761177600&v=beta&t=A8Tru9VvMZMTI61JXgnor78ORSeqJ4FcjWI6imWxysg" alt="Edwin Jacob - Professional Photo">
                     </div>
-                    <div class="ticker-content">
-                        <img src="https://logos-world.net/wp-content/uploads/2021/03/Alinta-Energy-Logo.png" alt="Alinta Energy" class="company-logo">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Vanguard.png/1200px-Vanguard.png" alt="Vanguard" class="company-logo">
-                        <img src="https://logos-world.net/wp-content/uploads/2021/02/National-Australia-Bank-NAB-Logo.png" alt="NAB" class="company-logo">
-                        <img src="https://logos-world.net/wp-content/uploads/2021/11/EnergyAustralia-Logo.png" alt="EnergyAustralia" class="company-logo">
-                        <img src="https://logos-world.net/wp-content/uploads/2021/02/Fidelity-Investments-Logo.png" alt="Fidelity Investments" class="company-logo">
-                        <img src="https://logos-world.net/wp-content/uploads/2020/06/Infosys-Logo.png" alt="Infosys" class="company-logo">
-                    </div>
-                </div>
-            </div>
-
-            <div class="main-content">
-                <div class="sidebar">
-                    <div class="contact-section">
-                        <h3 class="section-title" style="font-size: 1.3rem; margin-bottom: 20px;">
-                            Contact
-                        </h3>
-                        <div class="contact-links">
-                            <a href="mailto:edwin.george.jacob@gmail.com" class="contact-link">
-                                <span class="contact-icon">✉️</span>
-                                <span>edwin.george.jacob@gmail.com</span>
-                            </a>
-                            <a href="https://www.linkedin.com/in/edwin-j-0554b1a/" class="contact-link" target="_blank">
-                                <span class="contact-icon">💼</span>
-                                <span>LinkedIn Profile</span>
-                            </a>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Years Experience</div>
                         </div>
-                    </div>
-
-                    <div class="section">
-                        <h3 class="section-title" style="font-size: 1.3rem;">Skills & Expertise</h3>
-                        
-                        <div class="skill-category">
-                            <div class="skill-category-title">Core Competencies</div>
-                            <div class="skill-list">
-                                <span class="skill-tag">Business Analysis</span>
-                                <span class="skill-tag">Product Ownership</span>
-                                <span class="skill-tag">Agile Delivery</span>
-                                <span class="skill-tag">Scrum Facilitation</span>
-                                <span class="skill-tag">Stakeholder Engagement</span>
-                                <span class="skill-tag">Roadmap Planning</span>
-                            </div>
+                        <div class="stat">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Global Markets</div>
                         </div>
-
-                        <div class="skill-category">
-                            <div class="skill-category-title">Technical Acumen</div>
-                            <div class="skill-list">
-                                <span class="skill-tag">Software Development</span>
-                                <span class="skill-tag">Enterprise Systems</span>
-                                <span class="skill-tag">AI & Emerging Tech</span>
-                                <span class="skill-tag">Solution Architecture</span>
-                            </div>
-                        </div>
-
-                        <div class="skill-category">
-                            <div class="skill-category-title">Leadership</div>
-                            <div class="skill-list">
-                                <span class="skill-tag">Cross-team Collaboration</span>
-                                <span class="skill-tag">Workshop Facilitation</span>
-                                <span class="skill-tag">Problem Framing</span>
-                                <span class="skill-tag">Continuous Learning</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content">
-                    <div class="section">
-                        <h2 class="section-title">About Me</h2>
-                        <p class="intro-text">
-                            I'm Edwin Jacob, a versatile IT professional with a career journey spanning <span class="highlight">instructional design, software development, solutions consulting, business analysis, and product ownership</span>. I thrive at the intersection of people, process, and technology—helping teams deliver impactful digital solutions that create lasting business value.
-                        </p>
-                        <p class="intro-text">
-                            What excites me most is <span class="highlight">guiding teams through ambiguity, creating clarity, and ensuring the "why" behind solutions is never lost</span>. With a passion for AI and emerging technologies, I'm committed to shaping products and strategies that anticipate the future.
-                        </p>
-                    </div>
-
-                    <div class="ai-interest">
-                        <h3>AI & Future Interests</h3>
-                        <p>Technology is moving faster than ever, and AI is at the forefront of this transformation. I'm deeply engaged in understanding how AI can be embedded into enterprise solutions—streamlining processes, unlocking insights, and empowering teams to work smarter.</p>
-                        <p style="margin-top: 15px;">I'm particularly interested in how product leaders can responsibly integrate AI into digital strategies to create products that are not just efficient, but also human-centered and future-ready.</p>
-                    </div>
-
-                    <div class="section" id="experience">
-                        <h2 class="section-title">Career Timeline</h2>
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <h3 class="position-title">Product Owner</h3>
-                                <div class="position-description">
-                                    <ul>
-                                        <li>Defined and prioritized product backlogs aligned with business strategy</li>
-                                        <li>Partnered with cross-functional teams to deliver enterprise solutions</li>
-                                        <li>Balanced vision, stakeholder needs, and delivery constraints to maximize business value</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="timeline-item">
-                                <h3 class="position-title">Senior Business Analyst</h3>
-                                <div class="position-description">
-                                    <ul>
-                                        <li>Led requirements discovery, stakeholder workshops, and backlog refinement</li>
-                                        <li>Supported quarterly planning with capacity analysis, dependencies, and roadmap clarity</li>
-                                        <li>Championed customer-centric thinking, ensuring initiatives delivered measurable impact</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="timeline-item">
-                                <h3 class="position-title">Solutions Consultant</h3>
-                                <div class="position-description">
-                                    <ul>
-                                        <li>Worked with clients to translate complex requirements into tailored technology solutions</li>
-                                        <li>Designed and delivered scalable implementations that improved customer processes</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="timeline-item">
-                                <h3 class="position-title">Software Developer</h3>
-                                <div class="position-description">
-                                    <ul>
-                                        <li>Built and maintained enterprise applications with a focus on usability and performance</li>
-                                        <li>Developed strong foundations in coding, systems, and solution design</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="timeline-item">
-                                <h3 class="position-title">Instructional Designer</h3>
-                                <div class="position-description">
-                                    <ul>
-                                        <li>Created engaging learning experiences that balanced pedagogy and technology</li>
-                                        <li>Cultivated communication skills and a learner-first mindset that continues to guide my work</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="section">
-                        <h2 class="section-title">Key Projects</h2>
-                        <div class="projects-grid">
-                            <div class="project-card">
-                                <h4 class="project-title">ConnectAssist - Energy Connections Platform</h4>
-                                <p>Owned and delivered ConnectAssist, a new energy (Electricity & Gas meters) Connections Management Platform, integrating with multiple enterprise systems, and acted as Product Owner and BA, while contributing to delivery leadership. Championed user-centric design and continuous discovery practices while working closely with architects and developers to solve complex integration challenges and future-proof platform design.</p>
-                            </div>
-                            <div class="project-card">
-                                <h4 class="project-title">JBWere Digital Wealth Management Platform</h4>
-                                <p>At JBWere, I led the delivery of a key digital transformation project which involved a complete rebuild of a client facing wealth management platform. Collaborating closely with business stakeholders, architects, and development teams, I gathered and prioritised requirements, shaped user-centric solutions, and managed the end-to-end delivery lifecycle.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="section" id="contact">
-                        <h2 class="section-title">Let's Connect</h2>
-                        <p class="intro-text">
-                            I'm always open to conversations around <span class="highlight">product leadership, business analysis, and the future of AI in enterprise technology</span>. Whether you're looking to discuss opportunities or simply want to connect with a fellow technology enthusiast, I'd love to hear from you.
-                        </p>
-                        <div style="margin-top: 30px;">
-                            <a href="mailto:edwin.george.jacob@gmail.com?subject=Let's Connect&body=Hi Edwin, I'd like to connect with you about..." class="cta-btn primary" style="display: inline-block; color: white;">Send me a message</a>
+                        <div class="stat">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">Career Roles</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    <!-- Company Ticker -->
+    <section class="company-ticker">
+        <div class="ticker-label">Trusted by Leading Organizations</div>
+        <div class="ticker-wrapper">
+            <img src="https://logos-world.net/wp-content/uploads/2021/03/Alinta-Energy-Logo.png" alt="Alinta Energy" class="company-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Vanguard.png/1200px-Vanguard.png" alt="Vanguard" class="company-logo">
+            <img src="https://logos-world.net/wp-content/uploads/2021/02/National-Australia-Bank-NAB-Logo.png" alt="NAB" class="company-logo">
+            <img src="https://logos-world.net/wp-content/uploads/2021/11/EnergyAustralia-Logo.png" alt="EnergyAustralia" class="company-logo">
+            <img src="https://logos-world.net/wp-content/uploads/2021/02/Fidelity-Investments-Logo.png" alt="Fidelity Investments" class="company-logo">
+            <img src="https://logos-world.net/wp-content/uploads/2020/06/Infosys-Logo.png" alt="Infosys" class="company-logo">
+            <img src="https://logos-world.net/wp-content/uploads/2021/03/Alinta-Energy-Logo.png" alt="Alinta Energy" class="company-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Vanguard.png/1200px-Vanguard.png" alt="Vanguard" class="company-logo">
+            <img src="https://logos-world.net/wp-content/uploads/2021/02/National-Australia-Bank-NAB-Logo.png" alt="NAB" class="company-logo">
+        </div>
+    </section>
 
-        // Add scroll animation to timeline items
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+    <!-- Skills Section -->
+    <section class="section" id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Expertise & Skills</h2>
+                <p class="section-subtitle">Combining technical depth with strategic vision to drive meaningful digital transformation</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🎯</div>
+                    <h3 class="skill-title">Core Competencies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Business Analysis</span>
+                        <span class="skill-tag">Product Ownership</span>
+                        <span class="skill-tag">Agile Delivery</span>
+                        <span class="skill-tag">Scrum Facilitation</span>
+                        <span class="skill-tag">Stakeholder Engagement</span>
+                        <span class="skill-tag">Roadmap Planning</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚡</div>
+                    <h3 class="skill-title">Technical Acumen</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Software Development</span>
+                        <span class="skill-tag">Enterprise Systems</span>
+                        <span class="skill-tag">AI & Emerging Tech</span>
+                        <span class="skill-tag">Solution Architecture</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🚀</div>
+                    <h3 class="skill-title">Leadership</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Cross-team Collaboration</span>
+                        <span class="skill-tag">Workshop Facilitation</span>
+                        <span class="skill-tag">Problem Framing</span>
+                        <span class="skill-tag">Continuous Learning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+    <!-- AI Interest Section -->
+    <section class="section">
+        <div class="section-container">
+            <div class="ai-section">
+                <div class="ai-content">
+                    <h3 class="ai-title">AI & Future of Work</h3>
+                    <p class="ai-description">
+                        Technology is moving faster than ever, and AI is at the forefront of this transformation. I'm deeply engaged in understanding how AI can be embedded into enterprise solutions—streamlining processes, unlocking insights, and empowering teams to work smarter. I'm particularly interested in how product leaders can responsibly integrate AI into digital strategies to create products that are not just efficient, but also human-centered and future-ready.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        // Observe timeline items for scroll animation
-        document.querySelectorAll('.timeline-item').forEach((item, index) => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(20px)';
-            item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-            observer.observe(item);
-        });
-
-        // Enhanced hover effects
-        document.querySelectorAll('.skill-tag').forEach(tag => {
-            tag.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-3px) scale(1.05)';
-            });
-            
-            tag.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Contact form functionality (if needed)
-        function sendEmail() {
-            window.location.href = 'mailto:edwin.george.jacob@gmail.com?subject=Let\'s Connect&body=Hi Edwin, I\'d like to connect with you about...';
-        }
-    </script>
-</body>
-</html>
+    <!-- Experience Timeline -->
+    <section class="section" id="experience">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Career Journey</h2>
+                <p class="section-subtitle">A progressive path through diverse roles, building expertise in digital transformation</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Product Owner</h3>
+                        <div class="timeline-description">
+                            Defined and prioritized product backlogs aligned with business strategy. Partnered with cross-functional teams to deliver enterprise solutions. Balanced vision, stakeholder needs, and delivery constraints to maximize business value.
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Senior Business Analyst</h3>
+                        <div class="timeline-description">
+                            Led requirements discovery, stakeholder workshops, and backlog refinement. Supported quarterly planning with capacity analysis, dependencies, and roadmap clarity. Championed customer-centric thinking, ensuring initiatives delivered measurable impact.
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Solutions Consultant</h3>
+                        <div class="timeline-description">
+                            Worked with clients to translate complex requirements into tailored technology solutions. Designed and delivered scalable implementations that improved customer processes.
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Software Developer</h3>
+                        <div class="timeline-description">
+                            Built and maintained enterprise applications with a focus on usability and performance. Developed strong foundations in coding, systems, and solution design.
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Instructional Designer</h3>
+                        <div class="
