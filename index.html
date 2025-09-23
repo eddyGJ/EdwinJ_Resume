@@ -381,6 +381,71 @@
             font-weight: 500;
         }
 
+       /* AI Interest Section */
+        .ai-section {
+            background: var(--primary-color);
+            margin: 60px 0;
+            border-radius: 8px;
+            padding: 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .ai-section::before {
+            display: none;
+        }
+
+        .ai-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .ai-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .ai-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .ai-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .ai-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .ai-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .ai-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+
         /* Timeline */
         .timeline {
             position: relative;
@@ -597,6 +662,65 @@
             <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/fa/National_Australia_Bank.svg/1200px-National_Australia_Bank.svg.png" alt="NAB" class="company-logo">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRizNnoox9eTo_b657oIp0XbWZ7Q5mxs80xWg&s" alt="EnergyAustralia" class="company-logo">
             <img src="https://1000logos.net/wp-content/uploads/2017/11/Fidelity-Logo.png" alt="Fidelity" class="company-logo">
+        </div>
+    </section>
+
+
+    <!-- Skills Section -->
+    <section class="section" id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Expertise & Skills</h2>
+                <p class="section-subtitle">Combining technical depth with strategic vision to drive meaningful digital transformation</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🎯</div>
+                    <h3 class="skill-title">Core Competencies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Business Analysis</span>
+                        <span class="skill-tag">Product Ownership</span>
+                        <span class="skill-tag">Agile Delivery</span>
+                        <span class="skill-tag">Scrum Facilitation</span>
+                        <span class="skill-tag">Stakeholder Engagement</span>
+                        <span class="skill-tag">Roadmap Planning</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚡</div>
+                    <h3 class="skill-title">Technical Acumen</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Software Development</span>
+                        <span class="skill-tag">Enterprise Systems</span>
+                        <span class="skill-tag">AI & Emerging Tech</span>
+                        <span class="skill-tag">Solution Architecture</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🚀</div>
+                    <h3 class="skill-title">Leadership</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Cross-team Collaboration</span>
+                        <span class="skill-tag">Workshop Facilitation</span>
+                        <span class="skill-tag">Problem Framing</span>
+                        <span class="skill-tag">Continuous Learning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Interest Section -->
+    <section class="section">
+        <div class="section-container">
+            <div class="ai-section">
+                <div class="ai-content">
+                    <h3 class="ai-title">AI & Future of Work</h3>
+                    <p class="ai-description">
+                        Technology is moving faster than ever, and AI is at the forefront of this transformation. I'm deeply engaged in understanding how AI can be embedded into enterprise solutions—streamlining processes, unlocking insights, and empowering teams to work smarter. I'm particularly interested in how product leaders can responsibly integrate AI into digital strategies to create products that are not just efficient, but also human-centered and future-ready.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
