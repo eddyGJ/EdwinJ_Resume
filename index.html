@@ -7,7 +7,28 @@
         }
 
         .contact-card:hover {
-            transform: translateY(-<!DOCTYPE html>
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 20px;
+            color: white;
+        }
+
+        .contact-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+        }<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -312,7 +333,7 @@
         .ticker-wrapper {
             display: flex;
             animation: scroll 40s linear infinite;
-            gap: 80px;
+            gap: 120px;
             align-items: center;
         }
 
@@ -448,6 +469,7 @@
         .timeline-item {
             margin-bottom: 60px;
             position: relative;
+            cursor: pointer;
         }
 
         .timeline-item:nth-child(odd) .timeline-content {
@@ -468,18 +490,23 @@
             width: calc(50% - 30px);
             position: relative;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
         }
 
-        .timeline-dot {
-            position: absolute;
-            left: 50%;
-            top: 30px;
-            width: 16px;
-            height: 16px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            transform: translateX(-50%);
-            border: 3px solid var(--secondary-color);
+        .timeline-content.clickable {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .timeline-content.clickable:hover {
+            background: var(--hover-bg);
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 8px;
         }
 
         .timeline-title {
@@ -492,6 +519,52 @@
         .timeline-description {
             color: var(--text-secondary);
             line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .company-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            border-top: 1px solid var(--border-color);
+            padding-top: 0;
+            margin-top: 15px;
+        }
+
+        .company-details.expanded {
+            max-height: 200px;
+            padding-top: 15px;
+        }
+
+        .company-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .company-list li {
+            padding: 5px 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .company-list li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .expand-hint {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .timeline-item.active .timeline-content {
+            border-color: var(--primary-color);
         }
 
         /* Projects Grid */
@@ -755,17 +828,14 @@
 
     <!-- Company Ticker -->
     <section class="company-ticker">
-        <div class="ticker-label">Trusted by Leading Organizations</div>
+        <div class="ticker-label">Employed at Leading Organizations</div>
         <div class="ticker-wrapper">
-            <img src="https://logos-world.net/wp-content/uploads/2021/03/Alinta-Energy-Logo.png" alt="Alinta Energy" class="company-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Vanguard.png/1200px-Vanguard.png" alt="Vanguard" class="company-logo">
-            <img src="https://logos-world.net/wp-content/uploads/2021/02/National-Australia-Bank-NAB-Logo.png" alt="NAB" class="company-logo">
-            <img src="https://logos-world.net/wp-content/uploads/2021/11/EnergyAustralia-Logo.png" alt="EnergyAustralia" class="company-logo">
-            <img src="https://logos-world.net/wp-content/uploads/2021/02/Fidelity-Investments-Logo.png" alt="Fidelity Investments" class="company-logo">
-            <img src="https://logos-world.net/wp-content/uploads/2020/06/Infosys-Logo.png" alt="Infosys" class="company-logo">
-            <img src="https://logos-world.net/wp-content/uploads/2021/03/Alinta-Energy-Logo.png" alt="Alinta Energy" class="company-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Vanguard.png/1200px-Vanguard.png" alt="Vanguard" class="company-logo">
-            <img src="https://logos-world.net/wp-content/uploads/2021/02/National-Australia-Bank-NAB-Logo.png" alt="NAB" class="company-logo">
+            <img src="https://www.alintaenergy.com.au/-/media/alinta-website/data/media/img/alinta_default_logo_brand_refresh.png" alt="Alinta Energy" class="company-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Vanguard.png" alt="Vanguard" class="company-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/fa/National_Australia_Bank.svg/1200px-National_Australia_Bank.svg.png" alt="NAB" class="company-logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRizNnoox9eTo_b657oIp0XbWZ7Q5mxs80xWg&s" alt="EnergyAustralia" class="company-logo">
+            <img src="https://1000logos.net/wp-content/uploads/2017/11/Fidelity-Logo.png" alt="Fidelity Investments" class="company-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Infosys_logo.svg/320px-Infosys_logo.svg.png" alt="Infosys" class="company-logo">
         </div>
     </section>
 
