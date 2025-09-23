@@ -1,34 +1,4 @@
-        .contact-card {
-            background: var(--card-bg);
-            border-radius: 8px;
-            padding: 40px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-        }
-
-        .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--primary-color);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin: 0 auto 20px;
-            color: white;
-        }
-
-        .contact-link {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 600;
-        }<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -54,6 +24,7 @@
             --text-primary: #000000;
             --text-secondary: #666666;
             --hover-bg: #f5f5f5;
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
         body {
@@ -64,7 +35,6 @@
             overflow-x: hidden;
         }
 
-        /* Clean white background */
         .bg-animation {
             display: none;
         }
@@ -122,21 +92,6 @@
 
         .nav-link:hover {
             color: var(--text-primary);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-color);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
         }
 
         .nav-link::after {
@@ -243,28 +198,6 @@
             position: relative;
             overflow: hidden;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-        }
-
-        .profile-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: none;
-            animation: none;
-        }
-
-        .profile-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 0deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-            animation: rotate 10s linear infinite;
         }
 
         .profile-content {
@@ -469,7 +402,6 @@
         .timeline-item {
             margin-bottom: 60px;
             position: relative;
-            cursor: pointer;
         }
 
         .timeline-item:nth-child(odd) .timeline-content {
@@ -495,11 +427,17 @@
 
         .timeline-content.clickable {
             cursor: pointer;
-            position: relative;
         }
 
-        .timeline-content.clickable:hover {
-            background: var(--hover-bg);
+        .timeline-content.clickable .company-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding-top 0.3s ease;
+        }
+
+        .timeline-content.clickable.active .company-details {
+            max-height: 200px;
+            padding-top: 15px;
         }
 
         .timeline-date {
@@ -520,20 +458,6 @@
             color: var(--text-secondary);
             line-height: 1.7;
             margin-bottom: 15px;
-        }
-
-        .company-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            border-top: 1px solid var(--border-color);
-            padding-top: 0;
-            margin-top: 15px;
-        }
-
-        .company-details.expanded {
-            max-height: 200px;
-            padding-top: 15px;
         }
 
         .company-list {
@@ -563,158 +487,6 @@
             font-style: italic;
         }
 
-        .timeline-item.active .timeline-content {
-            border-color: var(--primary-color);
-        }
-
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-        }
-
-        .project-content {
-            padding: 40px;
-        }
-
-        .project-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-
-        .project-description {
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        /* AI Interest Section */
-        .ai-section {
-            background: var(--primary-color);
-            margin: 60px 0;
-            border-radius: 8px;
-            padding: 60px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            color: white;
-        }
-
-        .ai-section::before {
-            display: none;
-        }
-
-        .ai-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .ai-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-
-        .ai-description {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            max-width: 800px;
-            margin: 0 auto;
-            opacity: 0.9;
-        }
-
-        .ai-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-            opacity: 0.3;
-        }
-
-        .ai-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .ai-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-
-        .ai-description {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            text-align: center;
-        }
-
-        .contact-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
-        }
-
-        .contact-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            border-radius: 12px;
-            padding: 40px;
-            border: 1px solid rgba(102, 126, 234, 0.15);
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.08);
-        }
-
-        .contact-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(102, 126, 234, 0.3);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
-        }
-
-        .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--primary-gradient);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin: 0 auto 20px;
-        }
-
-        .contact-link {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
         /* Mobile Responsive */
         @media (max-width: 1024px) {
             .hero-container {
@@ -731,11 +503,6 @@
                 width: calc(100% - 60px);
                 margin-left: 60px !important;
                 text-align: left !important;
-            }
-            
-            .timeline-dot {
-                left: 20px;
-                transform: none;
             }
         }
 
@@ -765,31 +532,26 @@
                 grid-template-columns: 1fr;
             }
         }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
     </style>
 </head>
 <body>
     <div class="bg-animation"></div>
     
     <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-content">
-            <div class="logo">Edwin Jacob</div>
-            <div class="nav-links">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
+<nav class="nav">
+    <div class="nav-content">
+        <div class="logo">Edwin Jacob</div>
+        <div class="nav-links">
+            <a href="#hero" class="nav-link">About</a> <!-- points to hero section -->
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="https://www.linkedin.com/in/edwin-j-0554b1a/" class="nav-link" target="_blank">Contact</a> <!-- opens LinkedIn in new tab -->
         </div>
-    </nav>
+    </div>
+</nav>
+
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="hero-container">
             <div class="hero-content">
                 <h1>Product Leader & Digital Innovator</h1>
@@ -834,70 +596,11 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Vanguard.png" alt="Vanguard" class="company-logo">
             <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/fa/National_Australia_Bank.svg/1200px-National_Australia_Bank.svg.png" alt="NAB" class="company-logo">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRizNnoox9eTo_b657oIp0XbWZ7Q5mxs80xWg&s" alt="EnergyAustralia" class="company-logo">
-            <img src="https://1000logos.net/wp-content/uploads/2017/11/Fidelity-Logo.png" alt="Fidelity Investments" class="company-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Infosys_logo.svg/320px-Infosys_logo.svg.png" alt="Infosys" class="company-logo">
+            <img src="https://1000logos.net/wp-content/uploads/2017/11/Fidelity-Logo.png" alt="Fidelity" class="company-logo">
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="section" id="about">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">Expertise & Skills</h2>
-                <p class="section-subtitle">Combining technical depth with strategic vision to drive meaningful digital transformation</p>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">🎯</div>
-                    <h3 class="skill-title">Core Competencies</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Business Analysis</span>
-                        <span class="skill-tag">Product Ownership</span>
-                        <span class="skill-tag">Agile Delivery</span>
-                        <span class="skill-tag">Scrum Facilitation</span>
-                        <span class="skill-tag">Stakeholder Engagement</span>
-                        <span class="skill-tag">Roadmap Planning</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">⚡</div>
-                    <h3 class="skill-title">Technical Acumen</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Software Development</span>
-                        <span class="skill-tag">Enterprise Systems</span>
-                        <span class="skill-tag">AI & Emerging Tech</span>
-                        <span class="skill-tag">Solution Architecture</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🚀</div>
-                    <h3 class="skill-title">Leadership</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Cross-team Collaboration</span>
-                        <span class="skill-tag">Workshop Facilitation</span>
-                        <span class="skill-tag">Problem Framing</span>
-                        <span class="skill-tag">Continuous Learning</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- AI Interest Section -->
-    <section class="section">
-        <div class="section-container">
-            <div class="ai-section">
-                <div class="ai-content">
-                    <h3 class="ai-title">AI & Future of Work</h3>
-                    <p class="ai-description">
-                        Technology is moving faster than ever, and AI is at the forefront of this transformation. I'm deeply engaged in understanding how AI can be embedded into enterprise solutions—streamlining processes, unlocking insights, and empowering teams to work smarter. I'm particularly interested in how product leaders can responsibly integrate AI into digital strategies to create products that are not just efficient, but also human-centered and future-ready.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Timeline -->
+    <!-- Career Timeline -->
     <section class="section" id="experience">
         <div class="section-container">
             <div class="section-header">
@@ -905,44 +608,124 @@
                 <p class="section-subtitle">A progressive path through diverse roles, building expertise in digital transformation</p>
             </div>
             <div class="timeline">
+
+                <!-- Product Owner -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
+                    <div class="timeline-content clickable">
+                        <div class="timeline-date">2023 - Present</div>
                         <h3 class="timeline-title">Product Owner</h3>
                         <div class="timeline-description">
                             Defined and prioritized product backlogs aligned with business strategy. Partnered with cross-functional teams to deliver enterprise solutions. Balanced vision, stakeholder needs, and delivery constraints to maximize business value.
                         </div>
+                        <div class="company-details">
+                            <ul class="company-list">
+                                <li>Alinta Energy</li>
+                                <li>Vanguard Australia</li>
+                            </ul>
+                        </div>
+                        <div class="expand-hint">Click to view companies</div>
                     </div>
                 </div>
+
+                <!-- Senior Business Analyst -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
+                    <div class="timeline-content clickable">
+                        <div class="timeline-date">2016 - 2023</div>
                         <h3 class="timeline-title">Senior Business Analyst</h3>
                         <div class="timeline-description">
                             Led requirements discovery, stakeholder workshops, and backlog refinement. Supported quarterly planning with capacity analysis, dependencies, and roadmap clarity. Championed customer-centric thinking, ensuring initiatives delivered measurable impact.
                         </div>
+                        <div class="company-details">
+                            <ul class="company-list">
+                                <li>Alinta Energy</li>
+                                <li>Vanguard Australia</li>
+                                <li>JBWere</li>
+                                <li>NAB</li>
+                                <li>EnergyAustralia</li>
+                            </ul>
+                        </div>
+                        <div class="expand-hint">Click to view companies</div>
                     </div>
                 </div>
+
+                <!-- Senior Solutions Consultant -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content clickable">
+                        <div class="timeline-date">2013 - 2016</div>
+                        <h3 class="timeline-title">Senior Solutions Consultant</h3>
+                        <div class="timeline-description">
+                            Worked on creating and presenting Business Proposals. I helped develop quality solutions to meet various Enterprise, Medium and Small scale business requirements, taking responsibility for the solution design, service level agreements, overall solution costing, delivery planning and representation of that solution as required.
+                        </div>
+                        <div class="company-details">
+                            <ul class="company-list">
+                                <li>Fingent</li>
+                            </ul>
+                        </div>
+                        <div class="expand-hint">Click to view companies</div>
+                    </div>
+                </div>
+
+                <!-- Career Break -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3 class="timeline-title">Solutions Consultant</h3>
+                        <div class="timeline-date">2011 - 2012</div>
+                        <h3 class="timeline-title">Career Break - Masters Degree</h3>
                         <div class="timeline-description">
-                            Worked with clients to translate complex requirements into tailored technology solutions. Designed and delivered scalable implementations that improved customer processes.
+                            Pursued Masters Degree in Management at University of Bath, UK.
                         </div>
                     </div>
                 </div>
+
+                <!-- Systems Engineer -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Software Developer</h3>
+                    <div class="timeline-content clickable">
+                        <div class="timeline-date">2010 - 2011</div>
+                        <h3 class="timeline-title">Systems Engineer</h3>
                         <div class="timeline-description">
-                            Built and maintained enterprise applications with a focus on usability and performance. Developed strong foundations in coding, systems, and solution design.
+                            Maintained and optimized enterprise databases, ensuring data integrity, security, and smooth performance to support critical business operations.
                         </div>
+                        <div class="company-details">
+                            <ul class="company-list">
+                                <li>Fidelity Investments</li>
+                            </ul>
+                        </div>
+                        <div class="expand-hint">Click to view companies</div>
                     </div>
                 </div>
+
+                <!-- Instructional Designer -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
+                    <div class="timeline-content clickable">
+                        <div class="timeline-date">2008 - 2010</div>
                         <h3 class="timeline-title">Instructional Designer</h3>
-                        <div class="
+                        <div class="timeline-description">
+                            Designed and developed instructional programs and materials to enhance employee training and development.
+                        </div>
+                        <div class="company-details">
+                            <ul class="company-list">
+                                <li>Infosys Limited</li>
+                            </ul>
+                        </div>
+                        <div class="expand-hint">Click to view companies</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('.timeline-content.clickable').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
