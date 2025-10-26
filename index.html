@@ -381,6 +381,15 @@
             font-weight: 500;
         }
 
+        /* ===== Projects Grid ===== */
+        .projects-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(400px, 1fr)); gap:40px; margin-top:60px; }
+        .project-card { background: var(--card-bg); border-radius:8px; overflow:hidden; border:1px solid var(--border-color); transition:all 0.3s ease; position:relative; }
+        .project-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(0,0,0,0.12); }
+        .project-content { padding:40px; }
+        .project-title { font-size:1.4rem; font-weight:700; margin-bottom:15px; color: var(--primary-color); }
+        .project-description { color: var(--text-secondary); line-height:1.7; }
+
+        
        /* AI Interest Section */
         .ai-section {
             background: var(--primary-color);
